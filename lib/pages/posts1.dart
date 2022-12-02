@@ -251,10 +251,12 @@ class _MyPosts1State extends State<MyPosts1> {
             ),
           ],
         ),
-        Divider(
-          thickness: 1,
-          color: Colors.grey,
-        ),
+        index == 4
+            ? const SizedBox()
+            : const Divider(
+                thickness: 1,
+                color: Colors.grey,
+              ),
       ],
     );
   }

@@ -162,30 +162,3 @@ class Network {
     return null;
   }
 }
-class NetWork2{
- 
-    static String baseUrl = "dummy.restapiexample.com";
-  static Map<String, String> headers = {
-    "Content-Type": "applicaton/json; charset=UTF-8"
-  };
-
-  static String appEmployee = "/api/v1/employee/1";
-
-    static Future<List<EmployeeApi>?> getEmployeeApi(
-      String api, Map<String, String>? params) async {
-    final uri = Uri.https(baseUrl, api, params);
-    final response = await get(uri, headers: headers);
-    if (response.statusCode == 200) {
-      print("object${response.statusCode}");
-      print("body                 ${response.body}");
-      final data = jsonDecode(response.body);
-      return data.map<EmployeeApi>((element) {
-        print("return      gggggggggg");
-        return EmployeeApi.fromJson(element);
-      }).toList();
-    }
-    return null;
-  }
-
-   
-}

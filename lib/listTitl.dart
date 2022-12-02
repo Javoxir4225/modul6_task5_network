@@ -10,13 +10,13 @@ class MyListTitl extends StatefulWidget {
 }
 
 class _MyListTitlState extends State<MyListTitl> {
-  List<EmployeeApi> employe = [];
+  List<Photos> photo = [];
   String t = "";
   @override
   void initState() {
-    NetWork2.getEmployeeApi(NetWork2.appEmployee, null).then((value) {
+    Network.getPhoto(Network.apiPhoto, null).then((value) {
       setState(() {
-        employe = value ?? [];
+        photo = value ?? [];
         print("list: $value");
       });
     });
@@ -26,7 +26,7 @@ class _MyListTitlState extends State<MyListTitl> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: employe.isNotEmpty == true? Center(
+      body: photo.isNotEmpty == true? Center(
         child: Container(
           color: Colors.red,
           height: 200,
@@ -39,7 +39,7 @@ class _MyListTitlState extends State<MyListTitl> {
           color: Colors.purple,
           height: 200,
           width: double.infinity,
-          child: Text("${employe}"),
+          child: Text(""),
         ),
       ),
     );

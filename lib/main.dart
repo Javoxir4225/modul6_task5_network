@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:modul6_task5_network/listTitl.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:modul6_task5_network/pages/users.dart';
 
 void main(List<String> args) {
@@ -19,9 +19,13 @@ class _MyNetworkState extends State<MyNetwork> {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
+         theme: ThemeData(
+        // textTheme: GoogleFonts.acmeTextTheme(),
+        textTheme: GoogleFonts.aliceTextTheme(),
+      ),
       debugShowCheckedModeBanner: false,
-      home: MyListTitl(),
+      home: MyUsers(),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:modul6_task5_network/network.dart';
 import 'package:modul6_task5_network/pages/photos.dart';
@@ -25,6 +26,8 @@ class _MyUserNameState extends State<MyUserName> {
   List<Posts> post = [];
 
   _MyUserNameState(this.name, this.userId);
+  
+  bool iconSet = true;
 
   @override
   void initState() {
@@ -178,7 +181,7 @@ class _MyUserNameState extends State<MyUserName> {
                                 Row(
                                   children: [
                                     const Text(
-                                      "title:",
+                                      "title: ",
                                       style: TextStyle(
                                           color: Colors.black,
                                           fontSize: 14,
@@ -203,9 +206,11 @@ class _MyUserNameState extends State<MyUserName> {
                                     // Network.patchData(Network.apiTodo,
                                     //     {"completed": true}, index + 1);
                                   },
-                                  icon: Icon(todo[index].completed ?? false
-                                      ? Icons.check_box
-                                      : Icons.check_box_outline_blank),
+                                  icon: Icon(
+                                    todo[index].completed ?? false
+                                        ? Icons.check_box
+                                        : Icons.check_box_outline_blank,
+                                  ),
                                   color: Colors.blue,
                                 ),
                               ],
@@ -235,7 +240,7 @@ class _MyUserNameState extends State<MyUserName> {
                     child: GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(
-                          MaterialPageRoute(
+                          CupertinoPageRoute(
                             builder: (context) => MyPhotos(
                                 albumId: album[index].id ?? -1, name: name),
                           ),
